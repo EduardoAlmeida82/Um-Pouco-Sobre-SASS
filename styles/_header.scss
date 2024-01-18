@@ -1,0 +1,34 @@
+//O mixin funciona como se fosse uma função javascript e que vc pode incluir em vários componentes da página web
+@mixin flexCenter($direction, $bg) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: $direction;
+    background: $bg;
+}
+
+header{
+    @include flexCenter(row, blue);
+    color: white;
+    //o SASS permite realizar Agrupamento de Seletores
+    button{
+        background: $secondary;
+        &:hover{
+            background: yellow;
+        }
+        &::after{
+            content: "Testeeee";
+        }
+    }
+    p{
+        color: black;
+    }
+    h1{
+        color: whitesmoke;
+    }
+}
+// Com isso não preciso criar o seguinte seletor:
+//header button{
+    //background: $secondary;
+//}
